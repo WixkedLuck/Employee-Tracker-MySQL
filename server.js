@@ -1,8 +1,9 @@
-const inquirer =require('inquirer'); 
+const inquirer = import("inquirer");
 const express =require('express'); 
 const MySql =require('mysq12'); 
+
 const PORT =process.env.PORT || 3001; 
-const app =express; 
+const app =express(); 
 
 
 
@@ -21,9 +22,9 @@ const db = mysql.creatConnection({
 console.log(`now connected to ${database} table` )
 );
 //inquirer prompts
-const Questions=() =>
+const Questions=() =>{
 
-inquirer.prompt([
+return inquirer.prompt([
     {
     type: 'list',
     name: 'Select',
@@ -64,7 +65,7 @@ inquirer.prompt([
     else {
        return;  
     }
-})
+}) }
 //function for allDepartments
 const allDepartments =() => {
     const allDept = `SELECT * FROM department`;
